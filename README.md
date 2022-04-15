@@ -1,4 +1,4 @@
-cron-parser
+cron-parser-all
 ================
 
 [![Build Status](https://travis-ci.com/harrisiirak/cron-parser.svg?branch=master)](https://travis-ci.com/harrisiirak/cron-parser)
@@ -41,7 +41,7 @@ Usage
 Simple expression.
 
 ```javascript
-var parser = require('cron-parser');
+var parser = require('@hardik_sharma/cron-parser-all');
 
 try {
   var interval = parser.parseExpression('*/2 * * * ? *');
@@ -60,7 +60,7 @@ try {
 Iteration with limited timespan. Also returns ES6 compatible iterator (when iterator flag is set to true).
 
 ```javascript
-var parser = require('cron-parser');
+var parser = require('@hardik_sharma/cron-parser-all');
 
 var options = {
   currentDate: new Date('Wed, 26 Dec 2012 12:38:53 UTC'),
@@ -95,7 +95,7 @@ try {
 Timezone support
 
 ```javascript
-var parser = require('cron-parser');
+var parser = require('@hardik_sharma/cron-parser-all');
 
 var options = {
   currentDate: '2016-03-27 00:00:01',
@@ -116,7 +116,7 @@ try {
 Manipulation 
 
 ```javascript
-var parser = require('cron-parser');
+var parser = require('@hardik_sharma/cron-parser-all');
 
 var interval = parser.parseExpression('0 7 * * 0-4 *');
 var fields = JSON.parse(JSON.stringify(interval.fields)); // Fields is immutable
