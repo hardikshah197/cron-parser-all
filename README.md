@@ -24,7 +24,7 @@ Supported format
 ┬    ┬    ┬    ┬    ┬    ┬    ┬
 │    │    │    │    │    |    |
 │    │    │    │    │    |    |
-│    │    │    │    │    |    └ day of year (non standard or requireed)
+│    │    │    │    │    |    └ day of year (non standard)
 │    │    │    │    │    └──────day of week (0 - 7, 1L - 7L) (0 or 7 is Sun)
 │    │    │    │    └────────── month (1 - 12)
 │    │    │    └─────────────── day of month (1 - 31, L)
