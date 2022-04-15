@@ -25,12 +25,12 @@ Supported format
 │    │    │    │    │    |    |
 │    │    │    │    │    |    |
 │    │    │    │    │    |    └ day of year (non standard or requireed)
-│    │    │    │    │    └ day of week (0 - 7, 1L - 7L) (0 or 7 is Sun)
-│    │    │    │    └───── month (1 - 12)
-│    │    │    └────────── day of month (1 - 31, L)
-│    │    └─────────────── hour (0 - 23)
-│    └──────────────────── minute (0 - 59)
-└───────────────────────── second (0 - 59, optional)
+│    │    │    │    │    └──────day of week (0 - 7, 1L - 7L) (0 or 7 is Sun)
+│    │    │    │    └────────── month (1 - 12)
+│    │    │    └─────────────── day of month (1 - 31, L)
+│    │    └──────────────────── hour (0 - 23)
+│    └───────────────────────── minute (0 - 59)
+└────────────────────────────── second (0 - 59, optional)
 ```
 
 Supports mixed use of ranges and range increments (W character not supported currently). See tests for examples.
