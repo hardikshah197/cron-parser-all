@@ -1,6 +1,6 @@
 {
-  "name": "cron-parser",
-  "version": "4.3.0",
+  "name": "cron-parser-all",
+  "version": "0.0.1",
   "description": "Node.js library for parsing crontab instructions",
   "main": "lib/parser.js",
   "types": "index.d.ts",
@@ -24,14 +24,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/harrisiirak/cron-parser.git"
+    "url": "https://github.com/hardikshah197/cron-parser-all.git"
   },
   "keywords": [
     "cron",
     "crontab",
     "parser"
   ],
-  "author": "Harri Siirak",
+  "author": "Hardik Sharma",
   "contributors": [
     "Nicholas Clawson",
     "Daniel Prentis <daniel@salsitasoft.com>",
