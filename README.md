@@ -13,7 +13,7 @@ Typescript <= 4.2
 Setup
 ========
 ```bash
-npm install cron-parser-all
+npm i @hardik_sharma/cron-parser-all
 ```
 
 Supported format
