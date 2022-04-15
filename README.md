@@ -13,16 +13,18 @@ Typescript <= 4.2
 Setup
 ========
 ```bash
-npm install cron-parser
+npm install cron-parser-all
 ```
 
 Supported format
 ========
 
 ```
-*    *    *    *    *    *
-┬    ┬    ┬    ┬    ┬    ┬
-│    │    │    │    │    |
+*    *    *    *    *    *    *
+┬    ┬    ┬    ┬    ┬    ┬    ┬
+│    │    │    │    │    |    |
+│    │    │    │    │    |    |
+│    │    │    │    │    |    └ day of year (non standard or requireed)
 │    │    │    │    │    └ day of week (0 - 7, 1L - 7L) (0 or 7 is Sun)
 │    │    │    │    └───── month (1 - 12)
 │    │    │    └────────── day of month (1 - 31, L)
@@ -42,7 +44,7 @@ Simple expression.
 var parser = require('cron-parser');
 
 try {
-  var interval = parser.parseExpression('*/2 * * * *');
+  var interval = parser.parseExpression('*/2 * * * ? *');
 
   console.log('Date: ', interval.next().toString()); // Sat Dec 29 2012 00:42:00 GMT+0200 (EET)
   console.log('Date: ', interval.next().toString()); // Sat Dec 29 2012 00:44:00 GMT+0200 (EET)
@@ -67,7 +69,7 @@ var options = {
 };
 
 try {
-  var interval = parser.parseExpression('*/22 * * * *', options);
+  var interval = parser.parseExpression('*/22 * * * ? *', options);
 
   while (true) {
     try {
@@ -101,7 +103,7 @@ var options = {
 };
 
 try {
-  var interval = parser.parseExpression('0 * * * *', options);
+  var interval = parser.parseExpression('0 * * * ? *', options);
 
   console.log('Date: ', interval.next().toString()); // Date:  Sun Mar 27 2016 01:00:00 GMT+0200
   console.log('Date: ', interval.next().toString()); // Date:  Sun Mar 27 2016 02:00:00 GMT+0200
@@ -116,14 +118,14 @@ Manipulation
 ```javascript
 var parser = require('cron-parser');
 
-var interval = parser.parseExpression('0 7 * * 0-4');
+var interval = parser.parseExpression('0 7 * * 0-4 *');
 var fields = JSON.parse(JSON.stringify(interval.fields)); // Fields is immutable
 fields.hour = [8];
 fields.minute = [29];
 fields.dayOfWeek = [1,3,4,5,6,7];
 var modifiedInterval = parser.fieldsToExpression(fields);
 var cronString = modifiedInterval.stringify();
-console.log(cronString); // "29 8 * * 1,3-7"
+console.log(cronString); // "29 8 * * 1,3-7 *"
 ```
 
 Options
@@ -163,7 +165,7 @@ For example, the following expression will run on the last monday of the month
 at midnight:
 
 ```
-0 0 * * * 1L
+0 0 * * * 1L *
 ```
 
 The library also supports combining `L` expressions with other weekday
@@ -171,5 +173,5 @@ expressions. For example, the following cron will run every Monday as well
 as the last Wednesday of the month:
 
 ```
-0 0 * * * 1,3L
+0 0 * * * 1,3L *
 ```
